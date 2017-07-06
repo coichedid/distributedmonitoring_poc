@@ -19,4 +19,4 @@
 9. Let's setup services and request simulators  
     1. Login to **service** with ssh
     2. Install jdk on it  
-    ``` sudo apt-get install default-jdk
+``` sudo apt-get install default-jdk
