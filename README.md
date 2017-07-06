@@ -17,6 +17,6 @@
 > Kibana url is http://<< **tracker** hostname>>:5601  
 > Zipkin url is http://< **tracker** hostname>>:9411
 9. Let's setup services and request simulators  
-.. 1. Login to **service** with ssh
-.. 2. Install jdk on it  
-..    ``` sudo apt-get install default-jdk
+..1. Login to **service** with ssh
+..2. Install jdk on it  
+``` sudo apt-get install default-jdk
