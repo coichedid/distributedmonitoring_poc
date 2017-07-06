@@ -10,7 +10,7 @@
 6. Run Logstach container  
 ``` docker run -d -it --name logstash -p 5000:5000 logstash -e 'input { tcp { port => 5000 codec => "json" } } output { elasticsearch { hosts => ["192.168.99.100"] index => "log-%{serviceName}"} }' ```
 7. Run zipkin container configured to use elasticsearch as storage  
-``` docker run -d -it -e STORAGE_TYPE='elasticsearch' -e ES_HOSTS='http://elasticsearch:9200' --name zipkin --link es:elasticsearch -p 9411:9411 openzipkin/zipkin ```
+``` docker run -d -it -e STORAGE_TYPE='elasticsearch' -e ES_HOSTS='http://elasticsearch:9200' -e ES_INDEX='trace' --name zipkin --link es:elasticsearch -p 9411:9411 openzipkin/zipkin ```
 > This docker will be connected to elasticsearch as its storage since we set environment variables STORAGE_TYPE and ES_HOSTS  
 > Also we link elasticsearch container to ziplink container under hostname "elasticsearch"
 8. Test everything
