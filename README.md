@@ -2,7 +2,7 @@
 0. Create an ssh public key [SSH keys tutorial - Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys)
 1. Create a azure virtual machine **tracker** based on "Docker on Ubuntu Server" template [Docker Tutorial](http://keerats.com/blog/2016/setting-up-docker-on-mac-windows-linux-azure/)
 2. Create a azure Ubuntu Linux standard virtual machine **service** to host services
-3. Login on **tracker** with ssh
+3. Login to **tracker** with ssh
 4. Run ElasticSearch container  
 ``` docker run -d -it --name es -p 9200:9200 -p 9300:9300 elasticsearch ```
 5. Run Kibana container  
@@ -17,4 +17,6 @@
 > Kibana url is http://<< **tracker** hostname>>:5601  
 > Zipkin url is http://< **tracker** hostname>>:9411
 9. Let's setup services and request simulators  
-    a. blablabla
+.. 1. Login to **service** with ssh
+.. 2. Install jdk on it  
+..    ``` sudo apt-get install default-jdk
