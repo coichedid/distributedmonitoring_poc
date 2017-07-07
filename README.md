@@ -5,14 +5,20 @@
 3. Login to **tracker** with ssh
 4. Run ElasticSearch container  
 ``` docker run -d -it --name es -p 9200:9200 -p 9300:9300 elasticsearch ```
-5. Run Kibana container  
-``` docker run -d -it --name kibana --link es:elasticsearch -p 5601:5601 kibana```
+5. Run Kibana container and then install sense plugin  
+```  
+docker run -d -it --name kibana --link es:elasticsearch -p 5601:5601 kibana
+```
 6. Run Logstach container  
 ``` docker run -d -it --name logstash --link es:elasticsearch -p 5000:5000 logstash -e 'input { tcp { port => 5000 codec => "json" } } output { elasticsearch { hosts => ["elasticsearch"] index => "log-%{serviceName}"} }' ```
 7. Run zipkin container configured to use elasticsearch as storage  
-``` docker run -d -it -e STORAGE_TYPE='elasticsearch' -e ES_HOSTS='http://elasticsearch:9200' -e ES_INDEX='trace' --name zipkin --link es:elasticsearch -p 9411:9411 openzipkin/zipkin ```
+``` docker run -d -it -e STORAGE_TYPE='elasticsearch' -e ES_HOSTS='http://elasticsearch:9200' -e ES_INDEX='log' --name zipkin --link es:elasticsearch -p 9411:9411 openzipkin/zipkin ```
 > This docker will be connected to elasticsearch as its storage since we set environment variables STORAGE_TYPE and ES_HOSTS  
-> Also we link elasticsearch container to ziplink container under hostname "elasticsearch"
+> Also we link elasticsearch container to ziplink container under hostname "elasticsearch"  
+8. Run zipkin-dependencies container configured to use elasticsearch as storage (Needs to be scheduled)  
+```  
+docker run -d -it  -e STORAGE_TYPE='elasticsearch' -e ES_HOSTS='http://elasticsearch:9200' -e ES_INDEX='log' --name zipkin-deps --link es:elasticsearch openzipkin/zipkin-dependencies
+```
 8. Test everything
 > Kibana url is http://<< **tracker** hostname>>:5601  
 > Zipkin url is http://< **tracker** hostname>>:9411
