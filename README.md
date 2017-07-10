@@ -166,5 +166,6 @@ It's time to deploy it one
 >  
 > To finish all containers and end this demonstration, login to both machines **tracker** and **services** and run:  
 ``` docker stop $(docker ps -aq)  ```  
-``` docker rm $(docker ps -aq) ``` 
+``` docker rm $(docker ps -aq) ```  
+  
 > Remember to destroy azure machines!
