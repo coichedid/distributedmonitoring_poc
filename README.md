@@ -1,4 +1,10 @@
 # Distributed Monitoring Proof of Concept
+This project intends to demonstrate how the following architecture reference could be used to monitor and explore log and trace data from different services in a SOA or Microservice Architecture.
+Reference Architecture consists in a data ingestion stack, where data is provided by a group of data shippers components and, finally, data can be visualized with Data Viewer and Data Correlator componentes.
+The next diagram ilustrates the targeta architecture.  
+  
+![Reference Architecture]( "Reference Architecture")
+
 0. Create an ssh public key [SSH keys tutorial - Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys)
 1. Create a azure virtual machine **tracker** based on "Docker on Ubuntu Server" template [Docker Tutorial](http://keerats.com/blog/2016/setting-up-docker-on-mac-windows-linux-azure/)
 2. Create a azure Ubuntu Linux standard virtual machine **service** to host services
