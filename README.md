@@ -123,22 +123,23 @@ PUT _template/template_logs
   
 At this time, every service is build and its own container is done.  
 It's time to deploy it one  
+  
 8. Run all service containers  
     1. Deploy pocjavaservice1:  
     ``` docker run -d -it -p 2222:2222 -h javaservice1 --name javaservice1 -t pocdistributedmonitoring/pocjavaservice1 ```  
-    1. Deploy pocjavaservice2  
+    2. Deploy pocjavaservice2  
     ``` docker run -d -it -p 2223:2223 -h javaservice2 --name javaservice2 -t pocdistributedmonitoring/pocjavaservice2 ```  
-    1. Deploy pocjavaserviceerroneous  
+    3. Deploy pocjavaserviceerroneous  
     ``` docker run -d -it -p 2224:2224 -h javaserviceerroneous --name javaserviceerroneous -t pocdistributedmonitoring/pocjavaserviceerroneous ```  
-    1. Deploy pocjavaserviceslowly  
+    4. Deploy pocjavaserviceslowly  
     ``` docker run -d -it -p 2225:2225 -h javaserviceslowly --name javaserviceslowly -t pocdistributedmonitoring/pocjavaserviceslowly ```  
-    1. Deploy pocnodeservice1  
+    5. Deploy pocnodeservice1  
     ``` docker run -d -it -p 3333:3333 -h nodeservice1 --name nodeservice1 -t pocdistributedmonitoring/pocnodeservice1 ```  
-    1. Deploy pocnodeservice2  
+    6. Deploy pocnodeservice2  
     ``` docker run -d -it -p 3334:3334 -h nodeservice2 --name nodeservice2 -t pocdistributedmonitoring/pocnodeservice2 ```  
-    1. Deploy pocnodeserviceerroneous  
+    7. Deploy pocnodeserviceerroneous  
     ``` docker run -d -it -p 3335:3335 -h nodeserviceerroneous --name nodeserviceerroneous -t pocdistributedmonitoring/pocnodeserviceerroneous ```  
-    1. Deploy pocnodeserviceslowly  
+    8. Deploy pocnodeserviceslowly  
     ``` docker run -d -it -p 3336:3336 -h nodeserviceslowly --name nodeserviceslowly -t pocdistributedmonitoring/pocnodeserviceslowly ```  
 9. On azure, create endpoints for ports 2222, 2223, 2224, 2225, 3333, 3334, 3335 and 3336 for machine **services** (this will allow those services to access each other)  
 > If everything works fine, we can start to request random services to simulate normal trafic and collect some trace and log data. To do so, we need to start request simulation application  
