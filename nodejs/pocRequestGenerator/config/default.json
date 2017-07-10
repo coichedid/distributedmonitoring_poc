@@ -1,0 +1,15 @@
+{
+  "application":{
+    "name":"requestgenerator",
+    "serverName":"PoC Node Request Generator"
+  },
+  "gateway":{
+    "host":"172.17.0.1"
+  },
+  "logger":{
+    "logstash":{
+      "host":"logstash",
+      "port":5000
+    }
+  }
+}

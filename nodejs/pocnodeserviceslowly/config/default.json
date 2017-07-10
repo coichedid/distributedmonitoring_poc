@@ -1,0 +1,20 @@
+{
+  "application":{
+    "name":"pocnodeserviceslowly",
+    "serverName":"PoC Node Service Slowly",
+    "serverPort":3336
+  },
+  "gateway":{
+    "host":"172.17.0.1"
+  },
+  "logger":{
+    "logstash":{
+      "host":"logstash",
+      "port":5000
+    },
+    "zipkin":{
+      "host":"zipkinservice",
+      "port":9411
+    }
+  }
+}

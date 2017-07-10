@@ -1,0 +1,20 @@
+{
+  "application":{
+    "name":"pocnodeservice1",
+    "serverName":"PoC Node Service 1",
+    "serverPort":3333
+  },
+  "gateway":{
+    "host":"172.17.0.1"
+  },
+  "logger":{
+    "logstash":{
+      "host":"logstash",
+      "port":5000
+    },
+    "zipkin":{
+      "host":"zipkinservice",
+      "port":9411
+    }
+  }
+}
