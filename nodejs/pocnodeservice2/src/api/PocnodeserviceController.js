@@ -14,6 +14,7 @@ class PocnodeserviceController {
 
   sayHello(req,res) {
     let params = req.params;
+    console.log(this.applicationConfig);
     req.log.info(req.logger.markTime({}),`${this.applicationConfig.name} sayHello`)
     if (!params.hops && params.hops != 0) { //Just a little hack as 0 is also false
       req.log.info(req.logger.markTime({}),`First hop, setting to zero`);
