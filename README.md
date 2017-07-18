@@ -73,7 +73,7 @@ PUT _template/template_logs
 > Follow instructions from [Installing Apache Maven](https://maven.apache.org/install.html)  
 4. Install NodeJS  
 ``` sudo apt-get update  ```  
-``` sudo apt-get install nodejs npm ```  
+``` sudo apt-get install nodejs npm nodejs-legacy ```  
 5. Clone this project into some base folder  
 ``` cd ~/ ```  
 ``` mkdir PoC;cd PoC ```  
@@ -103,9 +103,9 @@ PUT _template/template_logs
 > ``` cd java ```  
 > For each [pocjavaservice1, pocjavaservice2, pocjavaserviceerroneous, pocjavaserviceslowly] execute these commands:  
 > * Run command ``` cd <service project: like pocjavaservice1> ```  
-> * Edit file src/main/java/resources/logback.xml.  
+> * Edit file src/main/resources/logback.xml.  
 >   * Find logstash:5000 and replace with **tracker** hostname:5000  
-> * Edit file src/main/java/resources/application.properties
+> * Edit file src/main/resources/application.properties
 >   * Find http://zipkinservice:9411 and replace with **tracker** hostname:9411   
 > * Run command ``` mvn package docker:build ```  
 > * Run command ``` cd .. ```  
