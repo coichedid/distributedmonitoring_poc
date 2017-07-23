@@ -15,7 +15,7 @@ public class NextServiceRandomizer {
             ":3333/node/service1/",
             ":3334/node/service2/",
             ":3335/node/serviceerroneous/",
-            ";3336/node/serviceslowly/"
+            ":3336/node/serviceslowly/"
     };
 
     public static String getNextService(int hop) {

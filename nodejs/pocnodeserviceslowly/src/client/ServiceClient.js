@@ -1,4 +1,5 @@
 import originalRequest from 'request-promise-native';
+import config from 'config';
 
 class ServiceClient {
   /**
@@ -8,6 +9,7 @@ class ServiceClient {
    * @return {ServiceClient}             new service client
    */
   constructor(service,gatewayHost,req) {
+    this.applicationConfig = config.get('application')
     this.nextService = service;
     this.gatewayHost = gatewayHost;
     this.gateway = `http://${this.gatewayHost}`;
@@ -29,7 +31,7 @@ class ServiceClient {
     return new Promise( (resolve, reject) => {
       this.options.uri = `${this.gateway}${this.nextService}${hops}`;
       this.req.log.info(this.req.logger.markTime({}),`calling service at ${this.options.uri}`);
-      let request = this.req.wrapRequest(originalRequest,applicationConfig.name,this.nextService);
+      let request = this.req.wrapRequest(originalRequest,this.applicationConfig.name,this.nextService);
       request(this.options)
         .then(result => {
           resolve(result);
